@@ -1,0 +1,8 @@
+{
+  "name": "tally",
+  "version": "0.3.1",
+  "description": "Tiny expense tally CLI",
+  "main": "src/cli.js",
+  "scripts": { "test": "node --test test/", "rates": "sh scripts/fetch-rates.sh" },
+  "license": "MIT"
+}

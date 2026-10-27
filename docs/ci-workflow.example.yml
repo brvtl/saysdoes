@@ -1,0 +1,46 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install
+        run: python -m pip install -e ".[dev]"
+      - name: Fetch Cohere trace (pinned revision, sha256-verified)
+        run: ./scripts/fetch_cohere_trace.sh
+      - name: Tests (incl. Cohere regression)
+        run: python -m pytest -q
+      - name: CI gate demo — saysdoes must flag the Cohere trace (exit 1)
+        run: |
+          mkdir -p out
+          set +e
+          saysdoes check fixtures/cohere/qwen-investigation.jsonl --html out/cohere.html --json out/cohere.json
+          code=$?
+          set -e
+          if [ "$code" -ne 1 ]; then
+            echo "expected exit 1 (contradiction found), got $code" >&2
+            exit 1
+          fi
+          echo "saysdoes flagged the contradiction (exit 1) as expected"
+      - name: CI gate demo — consistent Claude Code trace passes (exit 0)
+        run: saysdoes check fixtures/generated/claude-code-readonly-review.jsonl
+      - uses: actions/upload-artifact@v4
+        if: matrix.python-version == '3.13'
+        with:
+          name: saysdoes-report
+          path: out/

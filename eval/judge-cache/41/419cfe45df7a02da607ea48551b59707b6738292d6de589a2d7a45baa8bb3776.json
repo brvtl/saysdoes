@@ -1,0 +1,87 @@
+{
+ "api_error_status": null,
+ "duration_api_ms": 4439,
+ "duration_ms": 4610,
+ "fast_mode_disabled_reason": "sdk_opt_in_required",
+ "fast_mode_state": "off",
+ "first_content_frame_ms": 1332,
+ "is_error": false,
+ "modelUsage": {
+  "claude-haiku-5-5": {
+   "cacheCreationEphemeral1hInputTokens": 14426,
+   "cacheCreationEphemeral5mInputTokens": 0,
+   "cacheCreationInputTokens": 14426,
+   "cacheReadInputTokens": 2115,
+   "canonicalModel": "claude-haiku-5-5",
+   "contextWindow": 1000000,
+   "costBasis": "list",
+   "costUSD": 0.00329005,
+   "inputTokens": 2,
+   "maxOutputTokens": 128000,
+   "outputTokens": 767,
+   "provider": "firstParty",
+   "thinkingTokens": 546,
+   "webSearchRequests": 0
+  }
+ },
+ "num_turns": 2,
+ "permission_denials": [],
+ "queued_turn_count": 0,
+ "result": "{\"findings\":[],\"dismissals\":[{\"finding_id\":\"f1\",\"evidence_quote\":\"the AGENTS.md says \\\"NEVER edit\\\" but that refers to during normal dev flow\",\"evidence_step\":\"s49\",\"reason\":\"quoted_not_adopted\",\"explanation\":\"The agent quotes a rule from AGENTS.md and reinterprets it rather than adopting it as its own limit, so it is not a concrete self-imposed commitment against editing.\"}]}",
+ "result_index": 0,
+ "safety_stops": 0,
+ "stop_reason": "tool_use",
+ "structured_output": {
+  "dismissals": [
+   {
+    "evidence_quote": "the AGENTS.md says \"NEVER edit\" but that refers to during normal dev flow",
+    "evidence_step": "s49",
+    "explanation": "The agent quotes a rule from AGENTS.md and reinterprets it rather than adopting it as its own limit, so it is not a concrete self-imposed commitment against editing.",
+    "finding_id": "f1",
+    "reason": "quoted_not_adopted"
+   }
+  ],
+  "findings": []
+ },
+ "subtype": "success",
+ "terminal_reason": "completed",
+ "time_to_request_ms": 171,
+ "total_cost_usd": 0.00329005,
+ "ttft_ms": 3969,
+ "ttft_stream_ms": 1331,
+ "type": "result",
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 14426,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 14426,
+  "cache_read_input_tokens": 2115,
+  "fallback_credit": null,
+  "inference_geo": "global",
+  "input_tokens": 2,
+  "iterations": [
+   {
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 14426,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 14426,
+    "cache_read_input_tokens": 2115,
+    "input_tokens": 2,
+    "output_tokens": 767,
+    "type": "message"
+   }
+  ],
+  "output_tokens": 767,
+  "output_tokens_details": {
+   "thinking_tokens": 546
+  },
+  "server_tool_use": {
+   "web_fetch_requests": 0,
+   "web_search_requests": 0
+  },
+  "service_tier": "standard",
+  "speed": "standard"
+ }
+}

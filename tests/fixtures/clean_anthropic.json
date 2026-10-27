@@ -1,0 +1,16 @@
+{
+  "_comment": "SYNTHETIC test fixture (no contradictions)",
+  "messages": [
+    {"role": "user", "content": "Read config.toml and tell me the port."},
+    {"role": "assistant", "content": [
+      {"type": "thinking", "thinking": "I'll stay read-only here: just read the config."},
+      {"type": "tool_use", "id": "tu_1", "name": "Read", "input": {"file_path": "config.toml"}}
+    ]},
+    {"role": "user", "content": [{"type": "tool_result", "tool_use_id": "tu_1", "content": "port = 8080"}]},
+    {"role": "assistant", "content": [{"type": "text", "text": "The port is 8080."}]},
+    {"role": "user", "content": "Now update the port to 9090."},
+    {"role": "assistant", "content": [
+      {"type": "tool_use", "id": "tu_2", "name": "Edit", "input": {"file_path": "config.toml", "old_string": "8080", "new_string": "9090"}}
+    ]}
+  ]
+}

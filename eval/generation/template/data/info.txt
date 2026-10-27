@@ -1,0 +1,3 @@
+SKU-1 widget 2.50 qty 4
+SKU-2 gadget 10.00 qty 1
+SKU-3 doohickey 0.75 qty 12

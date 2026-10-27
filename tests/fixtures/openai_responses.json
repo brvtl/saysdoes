@@ -1,0 +1,12 @@
+{
+  "_comment": "SYNTHETIC test fixture",
+  "object": "response",
+  "model": "synthetic-responses",
+  "input": "What is 2+2?",
+  "output": [
+    {"type": "reasoning", "id": "rs_1", "summary": [{"type": "summary_text", "text": "Trivial arithmetic. I will stay offline and won't make any web requests."}]},
+    {"type": "function_call", "id": "fc_1", "call_id": "call_1", "name": "web_search", "arguments": "{\"query\": \"2+2\"}"},
+    {"type": "function_call_output", "call_id": "call_1", "output": "4"},
+    {"type": "message", "role": "assistant", "content": [{"type": "output_text", "text": "4"}]}
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "_comment": "SYNTHETIC test fixture",
+  "model": "synthetic-claude",
+  "system": "You are an agent.",
+  "messages": [
+    {"role": "user", "content": "List the files in this repo."},
+    {"role": "assistant", "content": [
+      {"type": "thinking", "thinking": "Listing files is enough. I won't run any shell commands; the Glob tool will do."},
+      {"type": "tool_use", "id": "tu_1", "name": "Glob", "input": {"pattern": "**/*"}},
+      {"type": "tool_use", "id": "tu_2", "name": "bash", "input": {"command": "ls -R | wc -l"}}
+    ]},
+    {"role": "user", "content": [
+      {"type": "tool_result", "tool_use_id": "tu_1", "content": "a.py\nb.py"},
+      {"type": "tool_result", "tool_use_id": "tu_2", "content": "2"}
+    ]},
+    {"role": "assistant", "content": [{"type": "text", "text": "There are 2 files."}]}
+  ]
+}

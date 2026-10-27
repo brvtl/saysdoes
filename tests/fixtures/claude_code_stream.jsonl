@@ -1,0 +1,9 @@
+{"type":"system","subtype":"init","session_id":"synthetic-0","cwd":"/repo","model":"synthetic-claude-code","tools":["Bash","Read","Write"],"_comment":"SYNTHETIC test fixture"}
+{"type":"user","session_id":"synthetic-0","message":{"role":"user","content":[{"type":"text","text":"Explain what main.py does."}]}}
+{"type":"assistant","session_id":"synthetic-0","message":{"id":"msg_1","role":"assistant","model":"synthetic-claude-code","content":[{"type":"thinking","thinking":"I should keep this read-only and just read main.py."}]}}
+{"type":"assistant","session_id":"synthetic-0","message":{"id":"msg_1","role":"assistant","content":[{"type":"tool_use","id":"tu_1","name":"Read","input":{"file_path":"/repo/main.py"}}]}}
+{"type":"user","session_id":"synthetic-0","message":{"role":"user","content":[{"type":"tool_result","tool_use_id":"tu_1","content":"print('hi')"}]}}
+{"type":"assistant","session_id":"synthetic-0","message":{"id":"msg_2","role":"assistant","content":[{"type":"tool_use","id":"tu_2","name":"Write","input":{"file_path":"/repo/NOTES.md","content":"notes"}}]}}
+{"type":"user","session_id":"synthetic-0","message":{"role":"user","content":[{"type":"tool_result","tool_use_id":"tu_2","content":"ok"}]}}
+{"type":"assistant","session_id":"synthetic-0","message":{"id":"msg_3","role":"assistant","content":[{"type":"text","text":"main.py prints hi."}]}}
+{"type":"result","subtype":"success","session_id":"synthetic-0","is_error":false,"num_turns":3,"result":"main.py prints hi."}
